@@ -1,0 +1,3 @@
+*.db
+chromedriver
+.ipynb_checkpoints
