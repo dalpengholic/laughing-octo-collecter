@@ -1,4 +1,5 @@
 # laughing-octo-collecter
 laughing-octo-collecter
 
-## This dev branch for development
+## Split README.md for master and dev
+
