@@ -40,4 +40,4 @@ jobs:
         # The name of the artifact
         name: SQLite-DB-File
         # The path to the SQLite DB file in the data directory
-        path: data/scraping.db
+        path: data/suomi_milk_product_data.db
