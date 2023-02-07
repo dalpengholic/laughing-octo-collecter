@@ -1,0 +1,41 @@
+version: '3'
+services:
+  standalone-chrome:
+    image: selenium/standalone-chrome
+    container_name: standalone-chrome
+    environment:
+      VNC_NO_PASSWORD: 1
+      shm-size: "2g"
+    ports:
+      - "4444:4444"
+    volumes:
+      - /dev/shm:/dev/shm
+
+  web-scraping:
+    build: .
+    container_name: web-scraping
+    environment:
+      REMOTE_DRIVER_IP: standalone-chrome
+    depends_on:
+      - standalone-chrome
+    volumes:
+      - ./data:/app/data
+    command: python3 collect-remote.py
+
+
+#version: '3'
+#services:
+#  selenium-chrome:
+#    image: selenium/standalone-chrome:latest
+#    ports:
+#      - "4444:4444"
+#  python:
+#    build: .
+#    ports:
+#      - "5000:5000"
+#    links:
+#      - selenium-chrome
+#    volumes:
+#      - .:/app
+#    working_dir: /app
+#    command: python3 collect.py
