@@ -1,0 +1,4 @@
+#requirements.txt
+selenium==4.7.2
+webdriver-manager==3.0.0
+six
