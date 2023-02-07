@@ -1,0 +1,43 @@
+# Name of the GitHub Actions workflow
+name: Run docker-compose and collect artifact
+
+# Trigger the workflow on push events to the main branch
+on:
+  push:
+    branches:
+      - main
+
+# Enable Docker CLI experimental features
+#env:
+#  DOCKER_CLI_EXPERIMENTAL: enabled
+
+# Define a job called "build"
+jobs:
+  build:
+    # The job runs on an Ubuntu 20.04 virtual environment
+    runs-on: ubuntu-20.04
+    
+    # Define a series of steps for the job
+    steps:
+    # Check out the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    # Set up Docker on the virtual environment
+    - name: Set up Docker
+      uses: docker/setup-docker@v2
+      with:
+        docker-version: 20.10.x
+        
+    # Build and run the Docker containers
+    - name: Build and run Docker containers
+      run: sh init.sh
+      
+    # Collect the SQLite DB file as an artifact
+    - name: Collect SQLite DB file
+      uses: actions/upload-artifact@v2
+      with:
+        # The name of the artifact
+        name: SQLite-DB-File
+        # The path to the SQLite DB file in the data directory
+        path: data/scraping.db
