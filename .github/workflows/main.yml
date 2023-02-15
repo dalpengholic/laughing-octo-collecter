@@ -34,7 +34,13 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         run_id: 4114513827
-        
+            
+    - name: List files in current directory
+      run: |
+        ls
+        pwd
+   
+      
     - name: Extract SQLite DB file
       run: tar -xf SQLite-DB-File/data.tar.gz
       
