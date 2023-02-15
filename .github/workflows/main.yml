@@ -31,13 +31,9 @@ jobs:
         
     # Download and extract the SQLite DB file from previous workflow
     - name: Download and extract SQLite DB file
-      uses: actions/download-artifact@v2
+      uses: dawidd6/action-download-artifact@v2
       with:
-        # The name of the artifact
-        name: SQLite-DB-File
-        path: SQLite-DB-File/data.tar.gz-${{ github.event.workflow_run.id }}
-      env:
-        GITHUB_RUN_ID: 4114513827
+        run_id: 4114513827
         
     - name: Extract SQLite DB file
       run: tar -xf SQLite-DB-File/data.tar.gz
