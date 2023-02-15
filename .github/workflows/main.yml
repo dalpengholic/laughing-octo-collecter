@@ -38,7 +38,7 @@ jobs:
             
     - name: List files in current directory
       run: |
-        ls -al SQLite-DB-File
+        ls -al data
         pwd
    
       
