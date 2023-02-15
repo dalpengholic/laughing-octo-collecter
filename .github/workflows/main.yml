@@ -35,7 +35,9 @@ jobs:
       with:
         # The name of the artifact
         name: SQLite-DB-File
-        run_id: 4114513827
+        path: SQLite-DB-File/data.tar.gz-${{ github.event.workflow_run.id }}
+      env:
+        GITHUB_RUN_ID: 4114513827
         
     - name: Extract SQLite DB file
       run: tar -xf SQLite-DB-File/data.tar.gz
