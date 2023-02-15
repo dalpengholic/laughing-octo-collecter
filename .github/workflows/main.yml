@@ -37,7 +37,7 @@ jobs:
             
     - name: List files in current directory
       run: |
-        ls
+        ls -al
         pwd
    
       
