@@ -43,7 +43,10 @@ def scroll_to_bottom(driver):
 def get_product_data(driver):
     product_names = driver.find_elements(By.XPATH, '//a[@data-test-id="product-card__productName"]')
     product_prices = driver.find_elements(By.XPATH, '//div[@data-test-id="product-card__productPrice__comparisonPrice"]')
-    print(list(zip(product_names, product_prices)))
+    product_data = list(zip(product_names, product_prices))
+        for index, (product_name, product_price) in enumerate(product_data):
+            print(index, product_name.text)
+            print(product_price.text)
     return list(zip(product_names, product_prices))
 
 def save_to_database(data):
