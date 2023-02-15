@@ -34,15 +34,13 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         run_id: 4114513827
+        path: data
             
     - name: List files in current directory
       run: |
         ls -al SQLite-DB-File
         pwd
    
-      
-    - name: Extract SQLite DB file
-      run: tar -xf SQLite-DB-File/data.tar.gz
       
     # Build and run the Docker containers
     - name: Build and run Docker containers
