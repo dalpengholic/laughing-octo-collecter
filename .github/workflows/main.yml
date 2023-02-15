@@ -41,6 +41,7 @@ jobs:
         ls -al data
         pwd
         cp ./data/SQLite-DB-File/* ./data/
+        ls -al
    
       
     # Build and run the Docker containers
